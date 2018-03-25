@@ -303,7 +303,8 @@
       
         
           
-            <p>当我们将项目打包后，从dist文件夹里点开首页会发现页面是空白的。打包前运行得好好地，怎么在这里就变成空白的了呢？  </p>
+            <a id="more"></a>  
+<p>当我们将项目打包后，从dist文件夹里点开首页会发现页面是空白的。打包前运行得好好地，怎么在这里就变成空白的了呢？<br><!--more--></p>
 <h2 id="找到"><a href="#找到" class="headerlink" title="找到"></a>找到</h2><p><img src="http://m.qpic.cn/psb?/V11dFdkd3wEoow/2vi8lLmcbtp8xtYxg42JiYBYJgv3XPmm6ODB9hJJPDc!/b/dGgBAAAAAAAA&amp;bo=uQCfAAAAAAADBwQ!&amp;rf=viewer_4" alt="image">  </p>
 <h2 id="然后"><a href="#然后" class="headerlink" title="然后"></a>然后</h2><p><img src="http://m.qpic.cn/psb?/V11dFdkd3wEoow/HKdlGh1o1lBXW5y2sCyIyYkOkhkmUFEBxSXwkXICd4Q!/b/dEABAAAAAAAA&amp;bo=gwLVAAAAAAADB3Y!&amp;rf=viewer_4" alt="image">  </p>
 <p>原因在资源配置上，把图中的assetsPublicPath改成’./‘就ok了。因为打包后你的资源访问不能再从根目录开始了，得改为当前目录。  </p>
