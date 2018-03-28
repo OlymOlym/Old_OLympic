@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="先前自学了一段时间的JQuery，确实比原始的js简便不少。最近一直在学vue好久没用了，先记录下来，以免忘记。因为只是做个记录，所以内容就不展开了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JQuery基础">
+<meta property="og:url" content="http://yoursite.com/2018/03/28/JQuery基础/index.html">
+<meta property="og:site_name" content="奥林的博客">
+<meta property="og:description" content="先前自学了一段时间的JQuery，确实比原始的js简便不少。最近一直在学vue好久没用了，先记录下来，以免忘记。因为只是做个记录，所以内容就不展开了。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://pic.caigoubao.cc/599889/%E5%9B%BE%E5%83%8F%201.png">
+<meta property="og:updated_time" content="2018-03-28T09:45:32.713Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JQuery基础">
+<meta name="twitter:description" content="先前自学了一段时间的JQuery，确实比原始的js简便不少。最近一直在学vue好久没用了，先记录下来，以免忘记。因为只是做个记录，所以内容就不展开了。">
+<meta name="twitter:image" content="http://pic.caigoubao.cc/599889/%E5%9B%BE%E5%83%8F%201.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/03/28/JQuery基础/"/>
+
+
+
+
+
+  <title>JQuery基础 | 奥林的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">奥林的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/28/JQuery基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Olympic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/一拳.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="奥林的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JQuery基础</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-28T16:23:13+08:00">
+                2018-03-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>先前自学了一段时间的JQuery，确实比原始的js简便不少。最近一直在学vue好久没用了，先记录下来，以免忘记。因为只是做个记录，所以内容就不展开了。<br><a id="more"></a></p>
+<h1 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h1><p>（注：带冒号的都是修饰前面的标签）</p>
+<h2 id="基础选择器"><a href="#基础选择器" class="headerlink" title="基础选择器"></a>基础选择器</h2><p>根据id选择，根据class选择，根据标签选择等等  </p>
+<h2 id="层级选择器"><a href="#层级选择器" class="headerlink" title="层级选择器"></a>层级选择器</h2><p><img src="http://pic.caigoubao.cc/599889/%E5%9B%BE%E5%83%8F%201.png" alt="image"></p>
+<h2 id="内容选择器"><a href="#内容选择器" class="headerlink" title="内容选择器"></a>内容选择器</h2><p>:has()选择器选择含有选择器所匹配的元素的父元素，返回集合元素<br>:empty选择器选择不包含子元素或文本的空元素，返回集合元素<br>:parent选择器选择含有子元素或文本的元素，返回集合元素<br>:contains(text)选择器选择含有文本内容为’text’的元素，返回集合元素  </p>
+<h2 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h2><p>$(“[attribute|=’value’]”)<br>*=包含；^=开头是；$=结尾是；  </p>
+<h2 id="过滤选择器"><a href="#过滤选择器" class="headerlink" title="过滤选择器"></a>过滤选择器</h2><p>:first   选取第一个元素,例$(“div:first”)<br>:last   选取最后一个元素  $(“div:last”)<br>:not() 去除所有给定选择器匹配的元素,例 $(“input:not(.myClass)”)<br>:even 选取索引数是偶数的元素 索引从0开始 $(“div:even”)<br>:odd 选取索引数是奇数的元素 索引从0开始 $(“div:odd”)<br>:eq(index)选取索引数等于index的元素  $(“div:eq(2)”)<br>:gt(index)选取索引数大于index的元素  $(“div:gt(2)”)<br>:lt(index)选取索引数小于index的元素   $(“div:lt(2)”)  </p>
+<h2 id="子元素选择器"><a href="#子元素选择器" class="headerlink" title="子元素选择器"></a>子元素选择器</h2><p>:nth-child(index/evenn/odd/equation)<br>解析：:eq(index)只匹配一个元素，而:nth-child将为每一个父元素匹配子元素，并且:nth-child(index)的index是从1开始的，而:eq(index)是从0开始的<br>:first-child 选取每个父元素的第一个子元素  集合元素<br>:last-child 选取每个父元素的最后一个子元素<br>:only-child 如果某个元素是他父元素中唯一的子元素，那么将会被匹配。  </p>
+<h2 id="表单选择器"><a href="#表单选择器" class="headerlink" title="表单选择器"></a>表单选择器</h2><p>:input 匹配所有form元素；  </p>
+<h2 id="表单属性"><a href="#表单属性" class="headerlink" title="表单属性"></a>表单属性</h2><p>:checked 选取所有被选中的元素（单选框，复选框<br>:selected 选取所有被选中的选项元素（下拉列表）  </p>
+<h1 id="筛选"><a href="#筛选" class="headerlink" title="筛选"></a>筛选</h1><h2 id="过滤"><a href="#过滤" class="headerlink" title="过滤"></a>过滤</h2><p>eq();first();last();not();一眼就能看出什么意思。</p>
+<h2 id="串联"><a href="#串联" class="headerlink" title="串联"></a>串联</h2><p>andself()选上原来的。<br>add()加上。  </p>
+<h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2><p>chirldren();paretn();prev()前一个;prevall();nextall();find();siblings()前后所有弟兄；  </p>
+<h1 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h1><h2 id="style属性"><a href="#style属性" class="headerlink" title="style属性"></a>style属性</h2><p>attr(“”,””)健值对的形式。  </p>
+<h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><p>addclass();removeclass();teggleclass();  </p>
+<h2 id="文档操作"><a href="#文档操作" class="headerlink" title="文档操作"></a>文档操作</h2><p>html();添加html文档  </p>
+<h2 id="文体"><a href="#文体" class="headerlink" title="文体"></a>文体</h2><p>text();</p>
+<h2 id="值"><a href="#值" class="headerlink" title="值"></a>值</h2><p>val();  </p>
+<h1 id="文档处理"><a href="#文档处理" class="headerlink" title="文档处理"></a>文档处理</h1><h2 id="内部插入"><a href="#内部插入" class="headerlink" title="内部插入"></a>内部插入</h2><p>append();appendTo();prepend();prependTo();  </p>
+<h2 id="外部插入"><a href="#外部插入" class="headerlink" title="外部插入"></a>外部插入</h2><p>after();before();insertAfter();insertBefore();  </p>
+<h2 id="包围"><a href="#包围" class="headerlink" title="包围"></a>包围</h2><p>wrap()外部添加;innerInner();wrapAll();  </p>
+<h2 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h2><p>replaceWidth();replaceAll();  </p>
+<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><p>empty()清空内容;remove()清空标签;detach()绑定的事件还保留;  </p>
+<h2 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h2><p>clone()只复制标签不复制事件。  </p>
+<h1 id="css样式"><a href="#css样式" class="headerlink" title="css样式"></a>css样式</h1><p>（注：可视区域宽高$(window），文档总高度$(document)）</p>
+<h2 id="css（）"><a href="#css（）" class="headerlink" title="css（）"></a>css（）</h2><p>键值对形式  </p>
+<h2 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h2><p>offset()返回或者设置top和left;<br>position()负坐标为起始；  </p>
+<h2 id="尺寸"><a href="#尺寸" class="headerlink" title="尺寸"></a>尺寸</h2><p>width();height();<br>innerwidth();innerHeight();加padding<br>outerwidth();outerHeight();加边框   </p>
+<p>注：<br>1.dom加载完，js最好放body后面。<br>2.资源加载完，$(window).load(function………………………………)<br>3.JQuery等dom加载完，$(function)</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>您的打赏是我前进的动力</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="Olympic 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Olympic 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/19/vue页面空白问题/" rel="next" title="vue页面空白问题">
+                <i class="fa fa-chevron-left"></i> vue页面空白问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/一拳.jpeg"
+                alt="Olympic" />
+            
+              <p class="site-author-name" itemprop="name">Olympic</p>
+              <p class="site-description motion-element" itemprop="description">等我秃了，就变强了</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yourname" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/your-user-name" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-globe"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://douban.com/people/your-user-name" target="_blank" title="豆瓣">
+                      
+                        <i class="fa fa-fw fa-globe"></i>豆瓣</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://www.zhihu.com/people/your-user-name" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#选择器"><span class="nav-number">1.</span> <span class="nav-text">选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础选择器"><span class="nav-number">1.1.</span> <span class="nav-text">基础选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#层级选择器"><span class="nav-number">1.2.</span> <span class="nav-text">层级选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内容选择器"><span class="nav-number">1.3.</span> <span class="nav-text">内容选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性选择器"><span class="nav-number">1.4.</span> <span class="nav-text">属性选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过滤选择器"><span class="nav-number">1.5.</span> <span class="nav-text">过滤选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#子元素选择器"><span class="nav-number">1.6.</span> <span class="nav-text">子元素选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表单选择器"><span class="nav-number">1.7.</span> <span class="nav-text">表单选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表单属性"><span class="nav-number">1.8.</span> <span class="nav-text">表单属性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#筛选"><span class="nav-number">2.</span> <span class="nav-text">筛选</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#过滤"><span class="nav-number">2.1.</span> <span class="nav-text">过滤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#串联"><span class="nav-number">2.2.</span> <span class="nav-text">串联</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找"><span class="nav-number">2.3.</span> <span class="nav-text">查找</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#属性"><span class="nav-number">3.</span> <span class="nav-text">属性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#style属性"><span class="nav-number">3.1.</span> <span class="nav-text">style属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类"><span class="nav-number">3.2.</span> <span class="nav-text">类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文档操作"><span class="nav-number">3.3.</span> <span class="nav-text">文档操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文体"><span class="nav-number">3.4.</span> <span class="nav-text">文体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#值"><span class="nav-number">3.5.</span> <span class="nav-text">值</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文档处理"><span class="nav-number">4.</span> <span class="nav-text">文档处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#内部插入"><span class="nav-number">4.1.</span> <span class="nav-text">内部插入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#外部插入"><span class="nav-number">4.2.</span> <span class="nav-text">外部插入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#包围"><span class="nav-number">4.3.</span> <span class="nav-text">包围</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#替换"><span class="nav-number">4.4.</span> <span class="nav-text">替换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除"><span class="nav-number">4.5.</span> <span class="nav-text">删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#复制"><span class="nav-number">4.6.</span> <span class="nav-text">复制</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#css样式"><span class="nav-number">5.</span> <span class="nav-text">css样式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#css（）"><span class="nav-number">5.1.</span> <span class="nav-text">css（）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#位置"><span class="nav-number">5.2.</span> <span class="nav-text">位置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#尺寸"><span class="nav-number">5.3.</span> <span class="nav-text">尺寸</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Olympic</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
