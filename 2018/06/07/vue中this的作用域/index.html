@@ -79,17 +79,22 @@
 
 
 
-<meta name="description" content="项目开发时遇到了一个坑，开发时数据获取正常，一天过后再用就发现获取不到数据了，在网上查阅资料发现这是mysql数据库的一个机制。MySQL服务器默认的“wait_timeout”是28800秒即8小时，意味着如果一个连接的空闲时间超过8个小时，MySQL将自动断开该连接。所以数据就访问不到了。">
+<meta name="description" content="页面用到了跳转，用路由时报错，没有push方法，此时网页会报下图的错误。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mysql数据库空闲8小时自动断开连接">
-<meta property="og:url" content="http://yoursite.com/2018/04/16/mysql数据库空闲8小时自动断开连接/index.html">
+<meta property="og:title" content="vue中this的作用域">
+<meta property="og:url" content="http://yoursite.com/2018/06/07/vue中this的作用域/index.html">
 <meta property="og:site_name" content="奥林的博客">
-<meta property="og:description" content="项目开发时遇到了一个坑，开发时数据获取正常，一天过后再用就发现获取不到数据了，在网上查阅资料发现这是mysql数据库的一个机制。MySQL服务器默认的“wait_timeout”是28800秒即8小时，意味着如果一个连接的空闲时间超过8个小时，MySQL将自动断开该连接。所以数据就访问不到了。">
+<meta property="og:description" content="页面用到了跳转，用路由时报错，没有push方法，此时网页会报下图的错误。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-16T09:19:27.176Z">
+<meta property="og:image" content="http://img2.ph.126.net/02f8JFx61rmkDT1OuVMB7A==/6631530660098335646.png">
+<meta property="og:image" content="http://img1.ph.126.net/YQDb-hdCJ0DK7raaODZ4jg==/6597755861914554097.png">
+<meta property="og:image" content="http://img2.ph.126.net/AfZel_sVK8A2JAH9zT-4Kw==/6632733525816857036.png">
+<meta property="og:image" content="http://img1.ph.126.net/W9mzfvCxE6GEjGEIaCe37w==/1385982785423615161.png">
+<meta property="og:updated_time" content="2018-06-07T15:00:18.931Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mysql数据库空闲8小时自动断开连接">
-<meta name="twitter:description" content="项目开发时遇到了一个坑，开发时数据获取正常，一天过后再用就发现获取不到数据了，在网上查阅资料发现这是mysql数据库的一个机制。MySQL服务器默认的“wait_timeout”是28800秒即8小时，意味着如果一个连接的空闲时间超过8个小时，MySQL将自动断开该连接。所以数据就访问不到了。">
+<meta name="twitter:title" content="vue中this的作用域">
+<meta name="twitter:description" content="页面用到了跳转，用路由时报错，没有push方法，此时网页会报下图的错误。">
+<meta name="twitter:image" content="http://img2.ph.126.net/02f8JFx61rmkDT1OuVMB7A==/6631530660098335646.png">
 
 
 
@@ -119,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/16/mysql数据库空闲8小时自动断开连接/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/07/vue中this的作用域/"/>
 
 
 
 
 
-  <title>mysql数据库空闲8小时自动断开连接 | 奥林的博客</title>
+  <title>vue中this的作用域 | 奥林的博客</title>
   
 
 
@@ -232,7 +237,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/16/mysql数据库空闲8小时自动断开连接/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/07/vue中this的作用域/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Olympic">
@@ -249,7 +254,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">mysql数据库空闲8小时自动断开连接</h1>
+          <h1 class="post-title" itemprop="name headline">vue中this的作用域</h1>
         
 
         <div class="post-meta">
@@ -261,8 +266,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-16T16:59:35+08:00">
-                2018-04-16
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-07T22:20:04+08:00">
+                2018-06-07
               </time>
             
 
@@ -299,8 +304,9 @@
       
 
       
-        <p>项目开发时遇到了一个坑，开发时数据获取正常，一天过后再用就发现获取不到数据了，在网上查阅资料发现这是mysql数据库的一个机制。MySQL服务器默认的“wait_timeout”是28800秒即8小时，意味着如果一个连接的空闲时间超过8个小时，MySQL将自动断开该连接。所以数据就访问不到了。<br><a id="more"></a></p>
-<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>网上有好几种解决方法，但我试了试只有修改my.ini文件这种方法有效。其他的避免8小时空闲的也不是什么好方法，定期发送请求感觉治标不治本。<br>先找到my.ini文件，这个文件在mysql根目录里，如果没有，看看是不是系统给隐藏了。打开以后，在最后两行添加<br>t_timeout=31536000<br>interactive_timeout=31536000<br>就哦了。</p>
+        <h2 id="页面用到了跳转，用路由时报错，没有push方法，此时网页会报下图的错误。"><a href="#页面用到了跳转，用路由时报错，没有push方法，此时网页会报下图的错误。" class="headerlink" title="页面用到了跳转，用路由时报错，没有push方法，此时网页会报下图的错误。"></a>页面用到了跳转，用路由时报错，没有push方法，此时网页会报下图的错误。</h2><a id="more"></a>
+<p><img src="http://img2.ph.126.net/02f8JFx61rmkDT1OuVMB7A==/6631530660098335646.png" alt="image">  原来函数内的this和函数外的this不是一回事，咱们可以打印一下<br><img src="http://img1.ph.126.net/YQDb-hdCJ0DK7raaODZ4jg==/6597755861914554097.png" alt="image"><br>打印的结果<br><img src="http://img2.ph.126.net/AfZel_sVK8A2JAH9zT-4Kw==/6632733525816857036.png" alt="image"><br>由此可知，在该函数内直接用this可以获取此marker内存储的信息，如我存的address，cost等等。  </p>
+<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>  若想要在该方法里使用vue，则可以在函数外设置一个变量指向this（即该vue对象），在方法体内调用该变量即可。主要是避免this的重合。<br><img src="http://img1.ph.126.net/W9mzfvCxE6GEjGEIaCe37w==/1385982785423615161.png" alt="image"></p>
 
       
     </div>
@@ -354,8 +360,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/28/JQuery基础/" rel="next" title="JQuery基础">
-                <i class="fa fa-chevron-left"></i> JQuery基础
+              <a href="/2018/04/23/为什么子类重写父类方法时抛出的异常不能比父类范围广/" rel="next" title="为什么子类重写父类方法时抛出的异常不能比父类范围广">
+                <i class="fa fa-chevron-left"></i> 为什么子类重写父类方法时抛出的异常不能比父类范围广
               </a>
             
           </div>
@@ -363,10 +369,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/04/23/为什么子类重写父类方法时抛出的异常不能比父类范围广/" rel="prev" title="为什么子类重写父类方法时抛出的异常不能比父类范围广">
-                为什么子类重写父类方法时抛出的异常不能比父类范围广 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -512,7 +514,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#解决方法"><span class="nav-number">1.</span> <span class="nav-text">解决方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#页面用到了跳转，用路由时报错，没有push方法，此时网页会报下图的错误。"><span class="nav-number">1.</span> <span class="nav-text">页面用到了跳转，用路由时报错，没有push方法，此时网页会报下图的错误。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解决方法"><span class="nav-number"></span> <span class="nav-text">解决方法</span></a></div>
             
 
           </div>
